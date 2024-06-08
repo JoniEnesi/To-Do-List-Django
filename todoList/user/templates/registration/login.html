@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/log.css' %}">
+    <link rel="shortcut icon" type="x-icon" href="{% static 'image/favicon.jpg' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+{% if form.errors %}
+    <script>
+      Swal.fire({
+          icon: "error",
+          title: "Your email and password didn't match.",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        });
+    </script>
+{% endif %}
+
+{% for message in messages %}
+  {% if message.tags == 'success' %}
+    <script>
+      Swal.fire({
+          icon: "success",
+          title: '{{ message }}',
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true
+        });
+    </script>
+  {% endif %}
+{% endfor %}
+
+    
+    <div class="container-log">
+        <h2>Login</h2>
+        <form method="POST" id="login-form">
+            {% csrf_token %}
+            {% for login in form %}
+            <div class="form-group">
+                <label for="username">{{ login.label }}</label>
+                {{ login }}
+            </div>
+            {% endfor %}
+            <button type="submit">Login</button>
+        </form>
+
+        <p style="font-size: 12px; text-align: center;">New user?<strong style="margin-left: 5px;"><a href="{% url 'register' %}" style="text-decoration: none; color: black;">Register now</a></strong></p>
+    </div>
+</body>
+</html>
