@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/log.css' %}">
+    <link rel="shortcut icon" type="x-icon" href="{% static 'image/favicon.jpg' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+
+    <div class="container-log">
+        <h3>Enter new password</h3>
+        <p style="font-size: 15px">Please enter your new password twice so we can verify you typed it in correctly.</p>
+        <form method="POST" id="login-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit">Reset my password</button>
+        </form>
+    </div>
+
+</body>
+</html>

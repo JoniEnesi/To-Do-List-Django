@@ -43,10 +43,6 @@ class UpdateTaskView(View):
         return render(request, 'index.html', context)
 
 class DeleteTaskView(View):
-    def get(self, request, pk):
-        task = Task.objects.get(id=pk)
-        context = {'task': task}
-        return render(request, 'index.html', context)
 
     def post(self, request, pk):
         task = Task.objects.get(id=pk)

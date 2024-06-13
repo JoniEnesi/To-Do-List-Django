@@ -59,3 +59,14 @@ button:hover {
     color: red;
     margin-top: 5px;
 }
+
+.forgot{
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.forgot a{
+    text-decoration: none;
+    color: #000000;
+}

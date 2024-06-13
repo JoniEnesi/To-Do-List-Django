@@ -48,6 +48,9 @@
                 {{ login }}
             </div>
             {% endfor %}
+            <div class="forgot">
+                <a href="{% url 'reset_password' %}">Forgot Password?</a>
+            </div>
             <button type="submit">Login</button>
         </form>
 
